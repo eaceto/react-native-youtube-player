@@ -66,141 +66,36 @@ IMPORTANT NOTE: You'll still need to perform step 4 for iOS and steps 2, 3, and 
     
 5. Add the required permissions in `AndroidManifest.xml`:
     ```xml
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     ```
     
 6. Add the import and link the package in `MainApplication.java`:
     ```java
-    import com.imagepicker.ImagePickerPackage; // <-- add this import
+    import ar.com.ezequielaceto.reactnative.library.youtubeplayer.YoutubePlayerPackager; // <-- add this import
 
     public class MainApplication extends Application implements ReactApplication {
         @Override
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
                 new MainReactPackage(),
-                new ImagePickerPackage() // <-- add this line
-                // OR if you want to customize dialog style
-                new ImagePickerPackage(R.style.my_dialog_style)
+                new YoutubePlayerPackage()
             );
         }
     }
     ```
 
-##### Android (Optional)
-
-Customization settings of dialog `android/app/res/values/themes.xml`:
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="DefaultExplainingPermissionsTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <!-- Used for the buttons -->
-        <item name="colorAccent">@color/your_color</item>
-
-        <!-- Used for the title and text -->
-        <item name="android:textColorPrimary">@color/your_color</item>
-
-        <!-- Used for the background -->
-        <item name="android:background">@color/your_color</item>
-    </style>
-<resources>
-```
-
-If `MainActivity` is not instance of `ReactActivity`, you will need to implement `OnImagePickerPermissionsCallback` to `MainActivity`:
-```java
-import com.imagepicker.permissions.OnImagePickerPermissionsCallback; // <- add this import
-import com.facebook.react.modules.core.PermissionListener; // <- add this import
-
-public class MainActivity extends YourActivity implements OnImagePickerPermissionsCallback {
-  private PermissionListener listener; // <- add this attribute
-
-  // Your methods here
-
-  // Copy from here
-
-  @Override
-  public void setPermissionListener(PermissionListener listener)
-  {
-    this.listener = listener;
-  }
-
-  @Override
-  public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
-  {
-    if (listener != null)
-    {
-      listener.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
-    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-  }
-
-  // To here
-}
 ```
 This code allows to pass result of request permissions to native part.
 
 ## Usage
 
 ```javascript
-var ImagePicker = require('react-native-youtube-player');
+var YoutubePlayer = require('react-native-youtube-player');
 
-// More info on all the options is below in the README...just some common use cases shown here
 var options = {
-  title: 'Select Avatar',
-  customButtons: [
-    {name: 'fb', title: 'Choose Photo from Facebook'},
-  ],
-  storageOptions: {
-    skipBackup: true,
-    path: 'images'
-  }
+  title: 'An example project'
 };
 
-/**
- * The first arg is the options object for customization (it can also be null or omitted for default options),
- * The second arg is the callback which sends object: response (more info below in README)
- */
-ImagePicker.showImagePicker(options, (response) => {
-  console.log('Response = ', response);
-
-  if (response.didCancel) {
-    console.log('User cancelled image picker');
-  }
-  else if (response.error) {
-    console.log('ImagePicker Error: ', response.error);
-  }
-  else if (response.customButton) {
-    console.log('User tapped custom button: ', response.customButton);
-  }
-  else {
-    let source = { uri: response.uri };
-
-    // You can also display the image using data:
-    // let source = { uri: 'data:image/jpeg;base64,' + response.data };
-
-    this.setState({
-      avatarSource: source
-    });
-  }
-});
-```
-Then later, if you want to display this image in your render() method:
-```javascript
-<Image source={this.state.avatarSource} style={styles.uploadAvatar} />
+YoutubePlayer.playVideoWithID("youtube-video-id", options);
 ```
 
-### Directly Launching the Camera or Image Library
-
-To Launch the Camera or Image Library directly (skipping the alert dialog) you can
-do the following:
-```javascript
-// Launch Camera:
-ImagePicker.launchCamera(options, (response)  => {
-  // Same code as in above section!
-});
-
-// Open Image Library:
-ImagePicker.launchImageLibrary(options, (response)  => {
-  // Same code as in above section!
-});
-```
