@@ -1,11 +1,18 @@
-'use strict'
+'use strict';
 
-const { NativeModules } = require('react-native');
-const { YoutubePlayerManager } = NativeModules;
+import {
+    NativeModules
+} from 'react-native';
 
-module.exports = {
-  ...YoutubePlayerManager,
-    playVideoWithID: function playVideoWithID(id, options) {
-    return YoutubePlayerManager.playVideoWithID(id, {...options})
-  }
-}
+const YoutubePlayerManager = NativeModules.YoutubePlayerManager || NativeModules.YoutubePlayerModule;
+
+var RCTYoutubePlayerManagerExport = {
+    playVideo: function(videoId, options={}) {
+        console.log("YoutubePlayerManager is " + YoutubePlayerManager);
+        console.log("YoutubePlayerManager.play is " + YoutubePlayerManager.play);
+        YoutubePlayerManager.play(videoId, options);
+    },
+
+};
+
+module.exports = RCTYoutubePlayerManagerExport;
