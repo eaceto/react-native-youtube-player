@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		014A3B6A1C6CF34500B6D375 /* YoutubePlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 014A3B691C6CF34500B6D375 /* YoutubePlayerManager.m */; };
+		3F1D93561F46EC6100B95906 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D93551F46EC6100B95906 /* YTPlayerView.m */; };
+		3F1D93591F46ECC100B95906 /* YoutubePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D93581F46ECC100B95906 /* YoutubePlayerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +28,10 @@
 		014A3B5C1C6CF33500B6D375 /* libRNYoutubePlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNYoutubePlayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		014A3B681C6CF34500B6D375 /* YoutubePlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoutubePlayerManager.h; sourceTree = "<group>"; };
 		014A3B691C6CF34500B6D375 /* YoutubePlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoutubePlayerManager.m; sourceTree = "<group>"; };
+		3F1D93541F46EC6100B95906 /* YTPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
+		3F1D93551F46EC6100B95906 /* YTPlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
+		3F1D93571F46ECC100B95906 /* YoutubePlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YoutubePlayerViewController.h; sourceTree = "<group>"; };
+		3F1D93581F46ECC100B95906 /* YoutubePlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YoutubePlayerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +48,10 @@
 		014A3B531C6CF33500B6D375 = {
 			isa = PBXGroup;
 			children = (
+				3F1D93571F46ECC100B95906 /* YoutubePlayerViewController.h */,
+				3F1D93581F46ECC100B95906 /* YoutubePlayerViewController.m */,
+				3F1D93541F46EC6100B95906 /* YTPlayerView.h */,
+				3F1D93551F46EC6100B95906 /* YTPlayerView.m */,
 				014A3B681C6CF34500B6D375 /* YoutubePlayerManager.h */,
 				014A3B691C6CF34500B6D375 /* YoutubePlayerManager.m */,
 				014A3B5D1C6CF33500B6D375 /* Products */,
@@ -112,6 +122,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F1D93591F46ECC100B95906 /* YoutubePlayerViewController.m in Sources */,
+				3F1D93561F46EC6100B95906 /* YTPlayerView.m in Sources */,
 				014A3B6A1C6CF34500B6D375 /* YoutubePlayerManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
