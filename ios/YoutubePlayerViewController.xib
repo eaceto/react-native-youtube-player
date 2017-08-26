@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YoutubePlayerViewController">
+            <connections>
+                <outlet property="loadingView" destination="hFu-um-uMi" id="bno-nd-jmV"/>
+                <outlet property="playerBaseView" destination="L1m-x4-Bds" id="FxS-Ec-Cra"/>
+                <outlet property="playerWebView" destination="L1m-x4-Bds" id="pJ7-HD-iLl"/>
+                <outlet property="view" destination="iN0-l3-epB" id="8N1-L5-d12"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGG-uA-J7q">
+                    <rect key="frame" x="0.0" y="22" width="414" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Fkp-Ma-8C5"/>
+                    </constraints>
+                    <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <items>
+                        <navigationItem id="0dG-bH-9QH">
+                            <barButtonItem key="leftBarButtonItem" title="Cerrar" style="done" id="Og9-Is-C7C">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="closeViewController:" destination="-1" id="Fsi-57-1sl"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UA0-7E-MCe">
+                    <rect key="frame" x="0.0" y="66" width="414" height="670"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1m-x4-Bds">
+                            <rect key="frame" x="0.0" y="180" width="414" height="310"/>
+                            <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="L1m-x4-Bds" secondAttribute="height" multiplier="4:3" id="HbC-Y3-EAZ"/>
+                            </constraints>
+                        </view>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hFu-um-uMi">
+                            <rect key="frame" x="188.66666666666666" y="316.66666666666669" width="37" height="37"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="37" id="2Qq-fe-Ecr"/>
+                                <constraint firstAttribute="width" constant="37" id="ya2-zV-eUD"/>
+                            </constraints>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="hFu-um-uMi" firstAttribute="centerY" secondItem="UA0-7E-MCe" secondAttribute="centerY" id="2XZ-zS-BxO"/>
+                        <constraint firstItem="L1m-x4-Bds" firstAttribute="centerX" secondItem="UA0-7E-MCe" secondAttribute="centerX" id="318-RT-nct"/>
+                        <constraint firstItem="L1m-x4-Bds" firstAttribute="height" relation="lessThanOrEqual" secondItem="UA0-7E-MCe" secondAttribute="height" id="FOf-wZ-Fdq"/>
+                        <constraint firstItem="L1m-x4-Bds" firstAttribute="centerY" secondItem="UA0-7E-MCe" secondAttribute="centerY" id="KnH-sM-ozx"/>
+                        <constraint firstItem="L1m-x4-Bds" firstAttribute="width" secondItem="UA0-7E-MCe" secondAttribute="width" id="Rd1-7d-yZw"/>
+                        <constraint firstItem="hFu-um-uMi" firstAttribute="centerX" secondItem="UA0-7E-MCe" secondAttribute="centerX" id="k3A-he-6y5"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="UA0-7E-MCe" firstAttribute="top" secondItem="bGG-uA-J7q" secondAttribute="bottom" id="6Hn-uU-yz4"/>
+                <constraint firstItem="bGG-uA-J7q" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="2" id="8wG-U8-Yec"/>
+                <constraint firstItem="UA0-7E-MCe" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="EIs-zv-f8T"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="UA0-7E-MCe" secondAttribute="trailing" id="QOh-pp-U4p"/>
+                <constraint firstItem="bGG-uA-J7q" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="WcN-00-nQQ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bGG-uA-J7q" secondAttribute="trailing" id="eZX-NW-jwN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="UA0-7E-MCe" secondAttribute="bottom" id="hhV-7Z-WXH"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
+        </view>
+    </objects>
+</document>

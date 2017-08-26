@@ -18,7 +18,9 @@ RCT_EXPORT_METHOD(play:(NSString *)videoId options:(NSDictionary *)options) {
             root = root.presentedViewController;
         }
         
-        YoutubePlayerViewController* v = [YoutubePlayerViewController new];
+        NSBundle *bundle = [NSBundle mainBundle];
+        
+        YoutubePlayerViewController* v = [[YoutubePlayerViewController alloc] initWithNibName:@"YoutubePlayerViewController" bundle:bundle];
         [v setVideoId:videoId];
         [v setOptions:options];
         

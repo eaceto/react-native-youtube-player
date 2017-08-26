@@ -11,27 +11,34 @@
 
 @interface YoutubePlayerViewController ()<YTPlayerViewDelegate>
 @property(nonatomic, strong) YTPlayerView* playerWebView;
+@property (weak, nonatomic) IBOutlet UIView *playerBaseView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingView;
 @end
 
 @implementation YoutubePlayerViewController
 @synthesize videoId;
 @synthesize options;
 
+- (IBAction)closeViewController:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _playerWebView = [YTPlayerView new];
-    
-    [self.view setBackgroundColor:UIColor.blackColor];
-    [self.view addSubview:_playerWebView];
+    _playerWebView = [YTPlayerView new];    
+    [self.playerBaseView addSubview:_playerWebView];
     [_playerWebView setDelegate:self];
     
     [_playerWebView setTranslatesAutoresizingMaskIntoConstraints:NO];
     NSDictionary *views = @{@"playerWebView": _playerWebView};
     NSArray *horizontalConstraints =[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[playerWebView]-0-|" options:0 metrics:nil views:views];
     NSArray *verticalConstraints =[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[playerWebView]-0-|" options:0 metrics:nil views:views];
-    [self.view addConstraints:horizontalConstraints];
-    [self.view addConstraints:verticalConstraints];
+    [self.playerBaseView addConstraints:horizontalConstraints];
+    [self.playerBaseView addConstraints:verticalConstraints];
     
+    [self.playerBaseView setHidden:YES];
+    [self.loadingView setHidden:NO];
     if (options != nil && options.count > 0) {
         [_playerWebView loadWithVideoId:videoId playerVars:options];
     } else {
@@ -50,6 +57,8 @@
 
 - (void)playerViewDidBecomeReady:(nonnull YTPlayerView *)playerView {
     NSLog(@"playerViewDidBecomeReady");
+    [self.playerBaseView setHidden:NO];
+    [self.loadingView setHidden:YES];
 }
 
 /**
@@ -80,6 +89,9 @@
  */
 - (void)playerView:(nonnull YTPlayerView *)playerView receivedError:(YTPlayerError)error {
     NSLog(@"playerReceivedError %@",error);
+    
+    //TODO show error and close
+    [self closeViewController:playerView];
 }
 
 @end
