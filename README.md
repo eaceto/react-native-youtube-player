@@ -71,7 +71,7 @@ IMPORTANT NOTE: You'll still need to perform step 4 for iOS and steps 2, 3, and 
     
 6. Add the import and link the package in `MainApplication.java`:
     ```java
-    import ar.com.ezequielaceto.reactnative.library.youtubeplayer.YoutubePlayerPackager; // <-- add this import
+    import ar.com.ezequielaceto.reactnative.library.youtubeplayer.YoutubePlayerPackage; // <-- add this import
 
     public class MainApplication extends Application implements ReactApplication {
         @Override
