@@ -11,46 +11,43 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 
 public class YoutubePlayerModule extends ReactContextBaseJavaModule {
-  private final ReactApplicationContext reactContext;
+    private final ReactApplicationContext reactContext;
 
-  private ReadableMap options;
-  private String videoId;
+    private ReadableMap options;
+    private String videoId;
 
-  public YoutubePlayerModule(ReactApplicationContext reactContext)
-  {
-    super(reactContext);
-    this.reactContext = reactContext;
-  }
-
-  @Override
-  public String getName() {
-    return "YoutubePlayerManager";
-  }
-
-  @ReactMethod
-  public void playVideoWithID(final String videoId, final ReadableMap options) {
-    Activity currentActivity = getCurrentActivity();
-
-    Log.d(getName(), "[call] playVideoWithID. videoId: " + videoId + " - options: " + options);
-
-    if (currentActivity == null)
-    {
-      return;
+    public YoutubePlayerModule(ReactApplicationContext reactContext) {
+        super(reactContext);
+        this.reactContext = reactContext;
     }
 
-    this.videoId = videoId;
-    this.options = options;
+    @Override
+    public String getName() {
+        return "YoutubePlayerManager";
+    }
 
-  }
+    @ReactMethod
+    public void playVideoWithID(final String videoId, final ReadableMap options) {
+        Activity currentActivity = getCurrentActivity();
 
-  public Context getContext()
-  {
-    return getReactApplicationContext();
-  }
+        Log.d(getName(), "[call] playVideoWithID. videoId: " + videoId + " - options: " + options);
 
-  public @NonNull Activity getActivity()
-  {
-    return getCurrentActivity();
-  }
+        if (currentActivity == null) {
+            return;
+        }
+
+        this.videoId = videoId;
+        this.options = options;
+
+    }
+
+    public Context getContext() {
+        return getReactApplicationContext();
+    }
+
+    public @NonNull
+    Activity getActivity() {
+        return getCurrentActivity();
+    }
 
 }
