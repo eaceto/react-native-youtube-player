@@ -4,10 +4,17 @@
 
 RCT_EXPORT_MODULE();
 
-RCT_EXPORT_METHOD(play:(NSString *)videoId options:(NSDictionary *)options) {
+RCT_EXPORT_METHOD(play:(NSString *)videoId options:(NSDictionary *)opt) {
 
-    if (options == nil) {
-        options = @{};
+    NSMutableDictionary* options = [NSMutableDictionary new];
+    [options setObject:@1 forKey:@"autoplay"];
+    [options setObject:@2 forKey:@"controls"];
+    [options setObject:@1 forKey:@"enablejsapi"];
+    [options setObject:@0 forKey:@"playsinline"];
+    [options setObject:@1 forKey:@"showinfo"];
+    
+    if (opt != nil) {
+        [options addEntriesFromDictionary:opt];
     }
     
     NSLog(@"YoutubePlayerManager [call] playVideoWithID - videoId %@ - options %@", videoId, options);

@@ -59,6 +59,7 @@
     NSLog(@"playerViewDidBecomeReady");
     [self.playerBaseView setHidden:NO];
     [self.loadingView setHidden:YES];
+    [playerView playVideo];
 }
 
 /**

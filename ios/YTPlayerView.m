@@ -752,6 +752,8 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     [self.webView setDelegate:self];
     self.webView.allowsInlineMediaPlayback = YES;
     self.webView.mediaPlaybackRequiresUserAction = NO;
+    self.webView.allowsPictureInPictureMediaPlayback = YES;
+    self.webView.mediaPlaybackAllowsAirPlay = YES;
     
     if ([self.delegate respondsToSelector:@selector(playerViewPreferredInitialLoadingView:)]) {
         UIView *initialLoadingView = [self.delegate playerViewPreferredInitialLoadingView:self];
