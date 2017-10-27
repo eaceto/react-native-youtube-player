@@ -1,7 +1,5 @@
 package ar.com.ezequielaceto.reactnative.library.youtubeplayer;
 
-import android.support.annotation.StyleRes;
-
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
 import com.facebook.react.bridge.NativeModule;
@@ -13,13 +11,15 @@ import java.util.Collections;
 import java.util.List;
 
 public class YoutubePlayerPackage implements ReactPackage {
-    public YoutubePlayerPackage() {
-
+    public YoutubePlayerPackage(String apiKey) {
+        YoutubePublicAPIKey = apiKey;
     }
+
+    protected static String YoutubePublicAPIKey = "";
 
 
     @Override public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        return Arrays.<NativeModule>asList(new YoutubePlayerModule(reactContext));
+        return Arrays.<NativeModule>asList(new YoutubePlayerManager(reactContext));
     }
 
     // Deprecated RN 0.47

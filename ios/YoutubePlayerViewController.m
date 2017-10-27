@@ -8,6 +8,8 @@
 
 #import "YoutubePlayerViewController.h"
 #import "YTPlayerView.h"
+#import <MediaPlayer/MediaPlayer.h>
+#import <AVKit/AVKit.h>
 
 @interface YoutubePlayerViewController ()<YTPlayerViewDelegate>
 @property(nonatomic, strong) YTPlayerView* playerWebView;
@@ -46,8 +48,37 @@
     }
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"AVPlayerItemBecameCurrentNotification" object:nil];
+}
+
+- (void)playerItemInitiated:(NSNotification*)notification {
+    NSLog(@"________DidExitFullscreenNotification");
+    
+    UIWindow *window = notification.object;
+    
+    UIWindow *appWindow = nil;
+    
+    UIApplication* app = [UIApplication sharedApplication];
+    if (app.delegate != nil && app.delegate.window != nil) {
+        appWindow = app.delegate.window;
+        if (appWindow != window) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(playerItemInitiated:)
+                                                 name:@"UIWindowDidBecomeHiddenNotification"
+                                               object:nil];
+    
+    /*
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackDidFinish:) name:MPMoviePlayerDidExitFullscreenNotification object:nil];
+     */
 }
 
 - (void)didReceiveMemoryWarning {

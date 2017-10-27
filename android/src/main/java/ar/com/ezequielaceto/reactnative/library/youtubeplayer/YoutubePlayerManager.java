@@ -2,6 +2,7 @@ package ar.com.ezequielaceto.reactnative.library.youtubeplayer;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -10,13 +11,15 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 
-public class YoutubePlayerModule extends ReactContextBaseJavaModule {
+import com.google.android.youtube.player.YouTubeStandalonePlayer;
+
+public class YoutubePlayerManager extends ReactContextBaseJavaModule {
     private final ReactApplicationContext reactContext;
 
     private ReadableMap options;
     private String videoId;
 
-    public YoutubePlayerModule(ReactApplicationContext reactContext) {
+    public YoutubePlayerManager(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
     }
@@ -27,7 +30,7 @@ public class YoutubePlayerModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void playVideoWithID(final String videoId, final ReadableMap options) {
+    public void play(final String videoId, final ReadableMap options) {
         Activity currentActivity = getCurrentActivity();
 
         Log.d(getName(), "[call] playVideoWithID. videoId: " + videoId + " - options: " + options);
@@ -39,6 +42,8 @@ public class YoutubePlayerModule extends ReactContextBaseJavaModule {
         this.videoId = videoId;
         this.options = options;
 
+        Intent intent = YouTubeStandalonePlayer.createVideoIntent(currentActivity, YoutubePlayerPackage.YoutubePublicAPIKey, videoId, 0 , true, false);
+        currentActivity.startActivity(intent);
     }
 
     public Context getContext() {

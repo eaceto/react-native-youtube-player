@@ -45,5 +45,7 @@ repositories {
 }
 
 dependencies {
-    compile "com.facebook.react:react-native:+"  // From node_modules
+    implementation 'com.facebook.react:react-native:+'
+    // From node_modules
+    implementation project(':YouTubeAndroidPlayerApi')
 }
