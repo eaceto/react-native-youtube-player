@@ -53,10 +53,7 @@
 }
 
 - (void)playerItemInitiated:(NSNotification*)notification {
-    NSLog(@"________DidExitFullscreenNotification");
-    
     UIWindow *window = notification.object;
-    
     UIWindow *appWindow = nil;
     
     UIApplication* app = [UIApplication sharedApplication];
