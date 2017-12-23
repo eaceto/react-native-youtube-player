@@ -1,7 +1,7 @@
 {
   "name": "react-native-youtube-player",
   "description": "A React Native module that allows you to play YouTube videos from React Native Apps.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.js",
   "repository": {
     "type": "git",
