@@ -21,7 +21,7 @@ A React Native module that allows you to play YouTube videos from React Native A
 
 `react-native link`
 
-IMPORTANT NOTE: You'll still need to perform step 4 for iOS and steps 2, 3, and 5 for Android of the manual instructions below.
+IMPORTANT NOTE: You'll still need to perform step 4 and 5 for iOS and steps 2, 3, and 5 for Android of the manual instructions below.
 
 ### Manual Installation
 
