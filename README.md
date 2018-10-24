@@ -1,7 +1,8 @@
 
-# React Native Youtube Player [![npm version](https://badge.fury.io/js/react-native-youtube-player.svg)](https://badge.fury.io/js/react-native-youtube-player) [![npm](https://img.shields.io/npm/dt/react-native-youtube-player.svg)](https://www.npmjs.org/package/react-native-youtube-player) ![MIT](https://img.shields.io/dub/l/vibe-d.svg) ![Platform - Android and iOS](https://img.shields.io/badge/platform-Android%20%7C%20iOS-yellow.svg) [![Gitter chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/react-native-youtube-player/Lobby)
+# React Native Youtube Player [![npm version](https://badge.fury.io/js/react-native-youtube-player.svg)](https://badge.fury.io/js/react-native-youtube-player) [![npm](https://img.shields.io/npm/dt/react-native-youtube-player.svg)](https://www.npmjs.org/package/react-native-youtube-player) ![MIT](https://img.shields.io/dub/l/vibe-d.svg) ![Platform - Android and iOS](https://img.shields.io/badge/platform-Android%20%7C%20iOS-yellow.svg)
 
 A React Native module that allows you to play YouTube videos from React Native Apps.
+
 
 ## Table of contents
 - [Install](#install)
