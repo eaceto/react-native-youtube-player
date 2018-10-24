@@ -30,7 +30,8 @@ IMPORTANT NOTE: You'll still need to perform step 4 for iOS and steps 2, 3, and 
 2. Go to `node_modules` ➜ `react-native-youtube-player` ➜ `ios` ➜ select `RNYoutubePlayer.xcodeproj`
 3. Add `RNYoutubePlayer.a` to `Build Phases -> Link Binary With Libraries`
 4. For iOS verify your ATS configuration
-5. Compile and have fun
+5. Drag and Drop "YTPlayerView-iframe-player.html" and "YoutubePlayerViewController.xib" to your main project (in Xcode). Copy those files. You can customize the XIB file in order to localize for example.
+6. Compile and have fun
 
 #### Android
 1. Add the following lines to `android/settings.gradle`:
@@ -96,6 +97,6 @@ var options = {
   title: 'An example project'
 };
 
-YoutubePlayer.playVideoWithID("youtube-video-id", options);
-```
+YoutubePlayer.playVideo("youtube-video-id", options);
+```javascript
 
