@@ -3,6 +3,7 @@
 
 A React Native module that allows you to play YouTube videos from React Native Apps.
 
+YouTube example video of this lib working on iOS -> https://www.youtube.com/watch?v=rGq_y5pF0xA&feature=youtu.be
 
 ## Table of contents
 - [Install](#install)
